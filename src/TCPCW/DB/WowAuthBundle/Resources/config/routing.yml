@@ -1,3 +1,0 @@
-tcpcwdb_wow_auth_homepage:
-    path:     /
-    defaults: { _controller: TCPCWDBWowAuthBundle:Default:index }

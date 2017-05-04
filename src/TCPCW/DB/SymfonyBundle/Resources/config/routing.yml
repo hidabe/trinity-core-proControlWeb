@@ -1,3 +1,0 @@
-tcpcwdb_symfony_homepage:
-    path:     /
-    defaults: { _controller: TCPCWDBSymfonyBundle:Default:index }

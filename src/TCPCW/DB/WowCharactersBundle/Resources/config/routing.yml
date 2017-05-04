@@ -1,3 +1,0 @@
-tcpcwdb_wow_characters_homepage:
-    path:     /
-    defaults: { _controller: TCPCWDBWowCharactersBundle:Default:index }

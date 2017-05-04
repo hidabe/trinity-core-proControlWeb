@@ -19,6 +19,8 @@ class AppKernel extends Kernel
             new TCPCW\DB\WowAuthBundle\TCPCWDBWowAuthBundle(),
             new TCPCW\DB\WowCharactersBundle\TCPCWDBWowCharactersBundle(),
             new TCPCW\DB\SymfonyBundle\TCPCWDBSymfonyBundle(),
+            new Symfony\Bundle\AsseticBundle\AsseticBundle(),
+            new Avanzu\AdminThemeBundle\AvanzuAdminThemeBundle(),
         ];
 
         if (in_array($this->getEnvironment(), ['dev', 'test'], true)) {

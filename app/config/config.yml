@@ -34,6 +34,14 @@ framework:
     php_errors:
         log: true
 
+# Assetic
+assetic:
+    use_controller: false
+
+# No Generate Assetic
+#avanzu_admin_theme:
+#    use_assetic: false
+
 # Twig Configuration
 twig:
     debug: '%kernel.debug%'
@@ -53,6 +61,8 @@ doctrine:
                 user:     "%database_wow_auth_user%"
                 password: "%database_wow_auth_password%"
                 charset:  UTF8
+                mapping_types:
+                    enum:       string
             wow_characters:
                 driver:   "%database_wow_characters_driver%"
                 host:     "%database_wow_characters_host%"
@@ -79,8 +89,8 @@ doctrine:
         entity_managers:
             wow_auth:
                 connection: wow_auth
-                #mappings:
-                #    DBWowAuthBundle:  ~
+                mappings:
+                    TCPCWDBWowAuthBundle:  ~
             wow_characters:
                 connection: wow_characters
                 #mappings:
