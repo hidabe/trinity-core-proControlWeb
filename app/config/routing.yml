@@ -1,3 +1,15 @@
+tcpcwdb_symfony:
+    resource: "@TCPCWDBSymfonyBundle/Resources/config/routing.yml"
+    prefix:   /
+
+tcpcwdb_wow_characters:
+    resource: "@TCPCWDBWowCharactersBundle/Resources/config/routing.yml"
+    prefix:   /
+
+tcpcwdb_wow_auth:
+    resource: "@TCPCWDBWowAuthBundle/Resources/config/routing.yml"
+    prefix:   /
+
 app:
     resource: '@AppBundle/Controller/'
     type: annotation

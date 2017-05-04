@@ -2,13 +2,26 @@
 # Set parameters here that may be different on each deployment target of the app, e.g. development, staging, production.
 # http://symfony.com/doc/current/best_practices/configuration.html#infrastructure-related-configuration
 parameters:
-    database_host: 127.0.0.1
-    database_port: ~
-    database_name: symfony
-    database_user: root
-    database_password: ~
-    # You should uncomment this if you want to use pdo_sqlite
-    #database_path: '%kernel.root_dir%/../var/data/data.sqlite'
+    # Internal database
+    database_symfony_driver: pdo_mysql
+    database_symfony_host: 127.0.0.1
+    database_symfony_port: ~
+    database_symfony_name: symfony
+    database_symfony_user: root
+    database_symfony_password: ~
+    # Databases Wow
+    database_wow_auth_driver: pdo_mysql
+    database_wow_auth_host: 127.0.0.1
+    database_wow_auth_port: ~
+    database_wow_auth_name: wow_auth
+    database_wow_auth_user: root
+    database_wow_auth_password: ~
+    database_wow_characters_driver: pdo_mysql
+    database_wow_characters_host: 127.0.0.1
+    database_wow_characters_port: ~
+    database_wow_characters_name: wow_auth
+    database_wow_characters_user: root
+    database_wow_characters_password: ~
 
     mailer_transport: smtp
     mailer_host: 127.0.0.1

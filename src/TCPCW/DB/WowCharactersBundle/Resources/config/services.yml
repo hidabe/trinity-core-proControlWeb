@@ -1,0 +1,4 @@
+services:
+#    tcpcwdb_wow_characters.example:
+#        class: TCPCW\DB\WowCharactersBundle\Example
+#        arguments: ["@service_id", "plain_value", "%parameter%"]

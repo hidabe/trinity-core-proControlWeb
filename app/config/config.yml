@@ -39,6 +39,58 @@ twig:
     debug: '%kernel.debug%'
     strict_variables: '%kernel.debug%'
 
+
+# Doctrine Configuration
+doctrine:
+    dbal:
+        default_connection: symfony
+        connections:
+            wow_auth:
+                driver:   "%database_wow_auth_driver%"
+                host:     "%database_wow_auth_host%"
+                port:     "%database_wow_auth_port%"
+                dbname:   "%database_wow_auth_name%"
+                user:     "%database_wow_auth_user%"
+                password: "%database_wow_auth_password%"
+                charset:  UTF8
+            wow_characters:
+                driver:   "%database_wow_characters_driver%"
+                host:     "%database_wow_characters_host%"
+                port:     "%database_wow_characters_port%"
+                dbname:   "%database_wow_characters_name%"
+                user:     "%database_wow_characters_user%"
+                password: "%database_wow_characters_password%"
+                charset:  UTF8
+            symfony:
+                driver:   "%database_symfony_driver%"
+                host:     "%database_symfony_host%"
+                port:     "%database_symfony_port%"
+                dbname:   "%database_symfony_name%"
+                user:     "%database_symfony_user%"
+                password: "%database_symfony_password%"
+                charset:  UTF8
+                mapping_types:
+                    enum:       string
+        types:
+            #json: Sonata\Doctrine\Types\JsonType
+
+    orm:
+        default_entity_manager: symfony
+        entity_managers:
+            wow_auth:
+                connection: wow_auth
+                #mappings:
+                #    DBWowAuthBundle:  ~
+            wow_characters:
+                connection: wow_characters
+                #mappings:
+                #    DBWowCharactersBundle:  ~
+            symfony:
+                connection: symfony
+                #mappings:
+                #    DBSymfonyBundle: ~
+                #    FOSUserBundle: ~
+
 # Doctrine Configuration
 doctrine:
     dbal:
