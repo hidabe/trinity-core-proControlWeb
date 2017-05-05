@@ -7,6 +7,4 @@ It is in development / alpha stage.
 
 ## Next steps:
 
-#### Add upgrade level function
-
 #### Add spanish & english translations
