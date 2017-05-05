@@ -98,7 +98,8 @@ doctrine:
                 #    DBWowCharactersBundle:  ~
             symfony:
                 connection: symfony
-                #mappings:
+                mappings:
+                     AppBundle: ~
                 #    DBSymfonyBundle: ~
                 #    FOSUserBundle: ~
 

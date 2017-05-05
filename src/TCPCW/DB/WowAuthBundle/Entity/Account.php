@@ -8,10 +8,17 @@ use Doctrine\ORM\Mapping as ORM;
  * Account
  *
  * @ORM\Table(name="account", uniqueConstraints={@ORM\UniqueConstraint(name="idx_username", columns={"username"})})
- * @ORM\Entity
+ * @ORM\Entity(repositoryClass="TCPCW\DB\WowAuthBundle\Entity\Repository\AccountRepository")
  */
 class Account
 {
+    public function __construct()
+    {
+        $this->joindate = new \DateTime("now");
+        $this->lastLogin = null;
+        //$this->lastLogin = new \DateTime("now");
+    }
+
     /**
      * @var string
      *

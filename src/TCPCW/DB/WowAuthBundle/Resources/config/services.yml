@@ -1,4 +1,4 @@
 services:
-#    tcpcwdb_wow_auth.example:
-#        class: TCPCW\DB\WowAuthBundle\Example
-#        arguments: ["@service_id", "plain_value", "%parameter%"]
+    tcpcwdb_wow_auth.account:
+        class: TCPCW\DB\WowAuthBundle\Services\AccountHelper
+        arguments: ["@doctrine.orm.wow_auth_entity_manager"]

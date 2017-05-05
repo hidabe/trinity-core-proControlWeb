@@ -4,6 +4,9 @@ parameters:
     #parameter_name: value
 
 services:
-    #service_name:
-    #    class: AppBundle\Directory\ClassName
-    #    arguments: ['@another_service_name', 'plain_value', '%parameter_name%']
+    app.userHelper:
+        class: AppBundle\Services\UserHelper
+        arguments: ["@fos_user.user_manager", "@security.token_storage"]
+    app.customAuthenticationFailureHandler:
+        class: AppBundle\Services\CustomAuthenticationFailureHandler
+        arguments: ["@tcpcwdb_wow_auth.account", "@app.userHelper", "@router", "@security.token_storage"]
