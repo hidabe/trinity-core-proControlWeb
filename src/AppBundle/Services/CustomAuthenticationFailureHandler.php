@@ -47,8 +47,9 @@ class CustomAuthenticationFailureHandler implements AuthenticationFailureHandler
             $token = new UsernamePasswordToken($userSymfony, null, "main", $userSymfony->getRoles());
             $this->securityContext->setToken($token); //now the user is logged in
             // Redireccionamos // TODO: Al panel
-            $loginRoute = $this->router->generate('fos_user_security_login');
-            return new RedirectResponse($loginRoute);
+            // $loginRoute = $this->router->generate('fos_user_security_login');
+            $panelRoute = $this->router->generate('panel_dashboard');
+            return new RedirectResponse($panelRoute);
         }
     }
 }

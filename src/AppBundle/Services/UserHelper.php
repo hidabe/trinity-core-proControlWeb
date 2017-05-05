@@ -29,8 +29,6 @@ class UserHelper {
 
         $userSymfony->setUsername($username);
         $userSymfony->setEmail($username);
-        $userSymfony->setFirstname($username);
-        $userSymfony->setLastname($username);
         if ($password != null) {
             $userSymfony->setPlainPassword($password);
             $userSymfony->setEnabled(1);

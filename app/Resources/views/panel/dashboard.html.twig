@@ -1,0 +1,58 @@
+{% extends 'panel/base.html.twig' %}
+
+{% block page_subtitle %}
+    PJs - Upgrade level
+{% endblock %}
+
+{% block page_content %}
+    <i><b>It is debug / alpha stage!</b> - Remember: You need logout from wow for it work.</i>
+
+    <hr/>
+
+    <div class="row">
+    {% for character in characters %}
+        <div class="col-md-4">
+            <!-- Widget: user widget style 1 -->
+            <div class="box box-widget widget-user">
+                <!-- Add the bg color to the header using any of the bg-* classes -->
+                <div class="widget-user-header bg-aqua-active">
+                    <h3 class="widget-user-username">{{ character.name }}</h3>
+                    <h5 class="widget-user-desc">{{ ("wow.race." ~ character.race)|trans }} | {{ ("wow.class." ~ character.class)|trans }}</h5>
+                </div>
+                <div class="widget-user-image">
+                    <img class="img-circle" src="http://img4.mmo.mmo4arab.com/news/2010/12/31/wow_avatar/wow_avatar_03.jpg" alt="User Avatar">
+                </div>
+                <div class="box-footer">
+                    <div class="row">
+                        <div class="col-sm-4 border-right">
+                            <div class="description-block">
+                                <a href="{{ path('panel_changeLevel', {'character_guid': character.guid, 'amount':'down'}) }}" class="btn btn-warning">Down</a>
+                            </div>
+                            <!-- /.description-block -->
+                        </div>
+                        <!-- /.col -->
+                        <div class="col-sm-4 border-right">
+                            <div class="description-block">
+                                <h5 class="description-header">Level</h5>
+                                <span class="description-text">{{ character.level }}</span>
+                            </div>
+                            <!-- /.description-block -->
+                        </div>
+                        <!-- /.col -->
+                        <div class="col-sm-4">
+                            <div class="description-block">
+                                <a href="{{ path('panel_changeLevel', {'character_guid': character.guid, 'amount':'up'}) }}" class="btn btn-primary">Up</a>
+                            </div>
+                            <!-- /.description-block -->
+                        </div>
+                        <!-- /.col -->
+                    </div>
+                    <!-- /.row -->
+                </div>
+            </div>
+            <!-- /.widget-user -->
+        </div>
+        <!-- /.col -->
+    {% endfor %}
+    </div>
+{% endblock %}

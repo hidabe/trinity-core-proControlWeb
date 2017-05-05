@@ -19,7 +19,7 @@ parameters:
     database_wow_characters_driver: pdo_mysql
     database_wow_characters_host: 127.0.0.1
     database_wow_characters_port: ~
-    database_wow_characters_name: wow_auth
+    database_wow_characters_name: wow_characters
     database_wow_characters_user: root
     database_wow_characters_password: ~
 

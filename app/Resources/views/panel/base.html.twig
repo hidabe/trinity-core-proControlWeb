@@ -1,0 +1,33 @@
+{% extends 'AvanzuAdminThemeBundle:layout:base-layout.html.twig' %}
+
+{% block stylesheets %}
+    {{ parent() }}
+    <style>
+    span.copyleft_icon {
+        font: 18px Arial, sans-serif;
+        display: inline-block;
+        transform: rotate(180deg);
+    }
+    </style>
+{% endblock %}
+
+{% block title %}
+    {{ app.user.username }}
+{% endblock %}
+
+{% block page_title %}
+    Dashboard
+{% endblock %}
+
+{% block page_subtitle %}
+    proControlWeb
+{% endblock %}
+
+{% block avanzu_admin_footer %}
+    <footer class="main-footer">
+        <div class="pull-right hidden-xs">
+            <b>Version</b> alphaDev
+        </div>
+        <strong>Copyleft <span class="copyleft_icon">&copy;</span> 2017 <a href="http://lanparties.tk">LanParties ODB</a>.</strong> All rights released.
+    </footer>
+{% endblock %}

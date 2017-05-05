@@ -200,7 +200,7 @@ class Account
      */
     public function setUsername($username)
     {
-        $this->username = $username;
+        $this->username = strtoupper($username);
 
         return $this;
     }
@@ -212,7 +212,7 @@ class Account
      */
     public function getUsername()
     {
-        return $this->username;
+        return strtolower($this->username);
     }
 
     /**

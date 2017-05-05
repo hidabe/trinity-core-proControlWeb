@@ -72,6 +72,9 @@ doctrine:
                 user:     "%database_wow_characters_user%"
                 password: "%database_wow_characters_password%"
                 charset:  UTF8
+                mapping_types:
+                    enum:       string
+                    bit:        integer
             symfony:
                 driver:   "%database_symfony_driver%"
                 host:     "%database_symfony_host%"
@@ -94,8 +97,8 @@ doctrine:
                     TCPCWDBWowAuthBundle:  ~
             wow_characters:
                 connection: wow_characters
-                #mappings:
-                #    DBWowCharactersBundle:  ~
+                mappings:
+                    TCPCWDBWowCharactersBundle:  ~
             symfony:
                 connection: symfony
                 mappings:
