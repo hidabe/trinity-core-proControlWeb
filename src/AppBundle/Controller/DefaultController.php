@@ -14,11 +14,6 @@ class DefaultController extends Controller
      */
     public function indexAction(Request $request)
     {
-        /** @var AccountHelper $accountHelper */
-        // $accountHelper = $this->get('tcpcwdb_wow_auth.account');
-
-        // $accountHelper->createAccount("prueba5", "prueba5");
-
-        return $this->render('default/index.html.twig');
+        return $this->redirect($this->generateUrl('panel_dashboard'));
     }
 }
