@@ -14,6 +14,7 @@ class DefaultController extends Controller
      */
     public function indexAction(Request $request)
     {
-        return $this->redirect($this->generateUrl('panel_dashboard'));
+        return $this->render('::public/landing.html.twig');
+        //return $this->redirect($this->generateUrl('panel_dashboard'));
     }
 }
