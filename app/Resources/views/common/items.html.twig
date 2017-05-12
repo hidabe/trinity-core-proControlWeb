@@ -1,8 +1,8 @@
 <div class="box box-default collapsed-box">
     <div class="box-header with-border">
         <h3 class="box-title">
-            <span class="pull-left badge bg-aqua">{{ characterInventories|length }}</span>
-            &nbsp;View inventary
+            <span class="pull-left badge bg-aqua">{{ itemEntries|length }}</span>
+            &nbsp;View items
         </h3>
 
         <div class="box-tools pull-right">
@@ -13,8 +13,8 @@
     </div>
     <!-- /.box-header -->
     <div class="box-body">
-        {% for ci in characterInventories %}
-            {% include 'common/item.html.twig' with {'itemId': ci.itemInstance.itemEntry } %}
+        {% for itemEntry in itemEntries %}
+            {% include 'common/item.html.twig' with {'itemId': itemEntry } %}
         {% endfor %}
     </div>
     <!-- /.box-body -->

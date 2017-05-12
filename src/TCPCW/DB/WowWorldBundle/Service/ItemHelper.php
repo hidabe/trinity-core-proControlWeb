@@ -30,7 +30,7 @@ class ItemHelper
                 new DoctrineCacheStorage(
                     new FilesystemCache('/tmp/')
                 ),
-                -1 // Not expiration
+                1800000000000 // Not expiration! ;-)
             )
         ), 'greedy-cache');
 

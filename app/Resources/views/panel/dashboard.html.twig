@@ -48,7 +48,7 @@
                         <!-- /.col -->
                     </div>
                     <!-- /.row -->
-                    {% include 'common/items.html.twig' with {'characterInventories': character.characterInventories } %}
+                    {% include 'common/items.html.twig' with {'itemEntries': character.itemEntries } %}
                 </div>
             </div>
             <!-- /.widget-user -->
@@ -56,4 +56,15 @@
         <!-- /.col -->
     {% endfor %}
     </div>
+
+    {#
+    <div>
+        Algunos sets para tu nivel
+        {% include 'common/items.html.twig' with {
+            'itemEntries': [42722,42721,42720,42719,42718]
+        }%}
+    </div>
+    #}
+
+
 {% endblock %}

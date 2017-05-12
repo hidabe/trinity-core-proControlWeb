@@ -3,6 +3,7 @@
 namespace TCPCW\DB\WowCharactersBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use Proxies\__CG__\TCPCW\DB\WowCharactersBundle\Entity\CharacterInventory;
 
 /**
  * Characters
@@ -12,6 +13,15 @@ use Doctrine\ORM\Mapping as ORM;
  */
 class Characters
 {
+    public function getItemEntries() {
+        $itemEntries = array();
+        /** @var CharacterInventory $characterInventory */
+        foreach($this->getCharacterInventories() as $characterInventory) {
+            $itemEntries[] = $characterInventory->getItemInstance()->getItementry();
+        }
+        return $itemEntries;
+    }
+
     /**
     * @ORM\OneToMany(targetEntity="CharacterInventory", mappedBy="guid")
     */
