@@ -13,9 +13,8 @@ use Doctrine\ORM\Mapping as ORM;
 class CharacterInventory
 {
     /**
-     * @var integer
-     *
-     * @ORM\Column(name="guid", type="integer", nullable=false)
+     * @ORM\ManyToOne(targetEntity="Characters", inversedBy="characterInventories")
+     * @ORM\JoinColumn(name="guid", referencedColumnName="guid")
      */
     private $guid = '0';
 
@@ -42,31 +41,10 @@ class CharacterInventory
      */
     private $item;
 
-
-
     /**
-     * Set guid
-     *
-     * @param integer $guid
-     *
-     * @return CharacterInventory
+     * @ORM\OneToOne(targetEntity="ItemInstance", mappedBy="characterInventory")
      */
-    public function setGuid($guid)
-    {
-        $this->guid = $guid;
-
-        return $this;
-    }
-
-    /**
-     * Get guid
-     *
-     * @return integer
-     */
-    public function getGuid()
-    {
-        return $this->guid;
-    }
+    private $itemInstance;
 
     /**
      * Set bag
@@ -124,5 +102,53 @@ class CharacterInventory
     public function getItem()
     {
         return $this->item;
+    }
+
+    /**
+     * Set guid
+     *
+     * @param \TCPCW\DB\WowCharactersBundle\Entity\Characters $guid
+     *
+     * @return CharacterInventory
+     */
+    public function setGuid(\TCPCW\DB\WowCharactersBundle\Entity\Characters $guid = null)
+    {
+        $this->guid = $guid;
+
+        return $this;
+    }
+
+    /**
+     * Get guid
+     *
+     * @return \TCPCW\DB\WowCharactersBundle\Entity\Characters
+     */
+    public function getGuid()
+    {
+        return $this->guid;
+    }
+
+    /**
+     * Set itemInstance
+     *
+     * @param \TCPCW\DB\WowCharactersBundle\Entity\ItemInstance $itemInstance
+     *
+     * @return CharacterInventory
+     */
+    public function setItemInstance(\TCPCW\DB\WowCharactersBundle\Entity\ItemInstance $itemInstance = null)
+    {
+        $this->itemInstance = $itemInstance;
+
+        return $this;
+    }
+
+    /**
+     * Get itemInstance
+     *
+     * @return \TCPCW\DB\WowCharactersBundle\Entity\ItemInstance
+     */
+    public function getItemInstance()
+    {
+        return $this->itemInstance;
     }
 }

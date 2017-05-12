@@ -8,6 +8,7 @@ use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
 use TCPCW\DB\WowAuthBundle\Services\AccountHelper;
 use TCPCW\DB\WowCharactersBundle\Entity\Characters;
+use TCPCW\DB\WowCharactersBundle\Entity\ItemInstance;
 use TCPCW\DB\WowCharactersBundle\Entity\Repository\CharactersRepository;
 
 /**
@@ -29,12 +30,6 @@ class PanelController extends Controller
         /** @var CharactersRepository $repositoryCharacters */
         $repositoryCharacters = $emWowCharacters->getRepository("TCPCWDBWowCharactersBundle:Characters");
         $characters = $repositoryCharacters->getByAccountId($account->getId());
-
-        // $repositoryCharacters
-        /** @var AccountHelper $accountHelper */
-        // $accountHelper = $this->get('tcpcwdb_wow_auth.account');
-
-        // $accountHelper->createAccount("prueba5", "prueba5");
 
         return $this->render('panel/dashboard.html.twig', array(
             'characters' => $characters

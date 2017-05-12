@@ -112,6 +112,12 @@ class ItemInstance
      */
     private $guid;
 
+    /**
+     * @ORM\OneToOne(targetEntity="CharacterInventory", inversedBy="itemInstance")
+     * @ORM\JoinColumn(name="guid", referencedColumnName="item")
+     */
+    private $characterInventory;
+
 
 
     /**
@@ -434,5 +440,29 @@ class ItemInstance
     public function getGuid()
     {
         return $this->guid;
+    }
+
+    /**
+     * Set characterInventory
+     *
+     * @param \TCPCW\DB\WowCharactersBundle\Entity\CharacterInventory $characterInventory
+     *
+     * @return ItemInstance
+     */
+    public function setCharacterInventory(\TCPCW\DB\WowCharactersBundle\Entity\CharacterInventory $characterInventory = null)
+    {
+        $this->characterInventory = $characterInventory;
+
+        return $this;
+    }
+
+    /**
+     * Get characterInventory
+     *
+     * @return \TCPCW\DB\WowCharactersBundle\Entity\CharacterInventory
+     */
+    public function getCharacterInventory()
+    {
+        return $this->characterInventory;
     }
 }

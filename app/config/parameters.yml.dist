@@ -22,6 +22,12 @@ parameters:
     database_wow_characters_name: wow_characters
     database_wow_characters_user: root
     database_wow_characters_password: ~
+    database_wow_world_driver: pdo_mysql
+    database_wow_world_host: 127.0.0.1
+    database_wow_world_port: ~
+    database_wow_world_name: wow_world
+    database_wow_world_user: root
+    database_wow_world_password: ~
 
     mailer_transport: smtp
     mailer_host: 127.0.0.1

@@ -75,6 +75,16 @@ doctrine:
                 mapping_types:
                     enum:       string
                     bit:        integer
+            wow_world:
+                driver:   "%database_wow_world_driver%"
+                host:     "%database_wow_world_host%"
+                port:     "%database_wow_world_port%"
+                dbname:   "%database_wow_world_name%"
+                user:     "%database_wow_world_user%"
+                password: "%database_wow_world_password%"
+                charset:  UTF8
+                mapping_types:
+                    enum:       string
             symfony:
                 driver:   "%database_symfony_driver%"
                 host:     "%database_symfony_host%"
@@ -99,6 +109,10 @@ doctrine:
                 connection: wow_characters
                 mappings:
                     TCPCWDBWowCharactersBundle:  ~
+            wow_world:
+                connection: wow_world
+                mappings:
+                    TCPCWDBWowWorldBundle:  ~
             symfony:
                 connection: symfony
                 mappings:

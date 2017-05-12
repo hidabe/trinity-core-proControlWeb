@@ -13,6 +13,11 @@ use Doctrine\ORM\Mapping as ORM;
 class Characters
 {
     /**
+    * @ORM\OneToMany(targetEntity="CharacterInventory", mappedBy="guid")
+    */
+    private $characterInventories;
+
+    /**
      * @var integer
      *
      * @ORM\Column(name="account", type="integer", nullable=false)
@@ -2356,5 +2361,46 @@ class Characters
     public function getGuid()
     {
         return $this->guid;
+    }
+    /**
+     * Constructor
+     */
+    public function __construct()
+    {
+        $this->characterInventories = new \Doctrine\Common\Collections\ArrayCollection();
+    }
+
+    /**
+     * Add characterInventory
+     *
+     * @param \TCPCW\DB\WowCharactersBundle\Entity\CharacterInventory $characterInventory
+     *
+     * @return Characters
+     */
+    public function addCharacterInventory(\TCPCW\DB\WowCharactersBundle\Entity\CharacterInventory $characterInventory)
+    {
+        $this->characterInventories[] = $characterInventory;
+
+        return $this;
+    }
+
+    /**
+     * Remove characterInventory
+     *
+     * @param \TCPCW\DB\WowCharactersBundle\Entity\CharacterInventory $characterInventory
+     */
+    public function removeCharacterInventory(\TCPCW\DB\WowCharactersBundle\Entity\CharacterInventory $characterInventory)
+    {
+        $this->characterInventories->removeElement($characterInventory);
+    }
+
+    /**
+     * Get characterInventories
+     *
+     * @return \Doctrine\Common\Collections\Collection
+     */
+    public function getCharacterInventories()
+    {
+        return $this->characterInventories;
     }
 }

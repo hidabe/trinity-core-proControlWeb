@@ -1,0 +1,13 @@
+services:
+# Services
+    tcpcwdb_wow_world.item:
+        class: TCPCW\DB\WowWorldBundle\Service\ItemHelper
+        arguments: ["@doctrine.orm.wow_world_entity_manager"]
+
+# Twig Services
+    tcpcwdb_wow_world.item_extension:
+        class: TCPCW\DB\WowWorldBundle\Twig\ItemExtension
+        public: false
+        arguments: ["@tcpcwdb_wow_world.item"]
+        tags:
+            - { name: twig.extension }
