@@ -3,7 +3,6 @@
 namespace TCPCW\DB\WowCharactersBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
-use Proxies\__CG__\TCPCW\DB\WowCharactersBundle\Entity\CharacterInventory;
 
 /**
  * Characters
