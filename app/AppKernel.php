@@ -18,7 +18,6 @@ class AppKernel extends Kernel
             new AppBundle\AppBundle(),
             new TCPCW\DB\WowAuthBundle\TCPCWDBWowAuthBundle(),
             new TCPCW\DB\WowCharactersBundle\TCPCWDBWowCharactersBundle(),
-            new TCPCW\DB\SymfonyBundle\TCPCWDBSymfonyBundle(),
             new Symfony\Bundle\AsseticBundle\AsseticBundle(),
             new Avanzu\AdminThemeBundle\AvanzuAdminThemeBundle(),
             new FOS\UserBundle\FOSUserBundle(),

@@ -39,7 +39,7 @@ class PanelController extends Controller
     /**
      * @Route("/changeLevel/{character_guid}/{amount}", name="panel_changeLevel")
      */
-    public function downLevelAction(Request $request, $character_guid, $amount) {
+    public function changeLevelAction(Request $request, $character_guid, $amount) {
         /** @var AccountHelper $accountHelper */
         $accountHelper = $this->get('tcpcwdb_wow_auth.account');
         $account = $accountHelper->getAccountFromUsername($this->getUser()->getUsername());
