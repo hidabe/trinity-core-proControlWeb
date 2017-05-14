@@ -2,6 +2,7 @@
 
 namespace AppBundle\Controller;
 
+use AppBundle\Services\CharacterHelper;
 use Doctrine\ORM\EntityManager;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
@@ -21,12 +22,12 @@ class PanelItemsController extends Controller
      */
     public function viewAction(Request $request, $characterId)
     {
-        /** @var AccountHelper $accountHelper */
-        $accountHelper = $this->get('tcpcwdb_wow_auth.account');
-        $account = $accountHelper->getAccountFromUsername($this->getUser()->getUsername());
+        /** @var CharacterHelper $characterHelper */
+        $characterHelper = $this->get('app.characterHelper');
+        $character = $characterHelper->getSecurityCharacter($characterId, $this->getUser());
 
-        //foreach($account->)
-
-        return $this->render('panel/items/view.html.twig', array());
+        return $this->render('panel/items/view.html.twig', array(
+            'character' => $character
+        ));
     }
 }

@@ -10,3 +10,6 @@ services:
     app.customAuthenticationFailureHandler:
         class: AppBundle\Services\CustomAuthenticationFailureHandler
         arguments: ["@tcpcwdb_wow_auth.account", "@app.userHelper", "@router", "@security.token_storage"]
+    app.characterHelper:
+        class: AppBundle\Services\CharacterHelper
+        arguments: ["@doctrine.orm.wow_auth_entity_manager", "@doctrine.orm.wow_characters_entity_manager", "@tcpcwdb_wow_auth.account"]

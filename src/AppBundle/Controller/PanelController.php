@@ -2,6 +2,7 @@
 
 namespace AppBundle\Controller;
 
+use AppBundle\Services\CharacterHelper;
 use Doctrine\ORM\EntityManager;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
@@ -40,27 +41,22 @@ class PanelController extends Controller
      * @Route("/changeLevel/{character_guid}/{amount}", name="panel_changeLevel")
      */
     public function changeLevelAction(Request $request, $character_guid, $amount) {
-        /** @var AccountHelper $accountHelper */
-        $accountHelper = $this->get('tcpcwdb_wow_auth.account');
-        $account = $accountHelper->getAccountFromUsername($this->getUser()->getUsername());
-        /** @var EntityManager $emWowCharacters */
         $emWowCharacters = $this->get('doctrine.orm.wow_characters_entity_manager');
-        /** @var CharactersRepository $repositoryCharacters */
-        $repositoryCharacters = $emWowCharacters->getRepository("TCPCWDBWowCharactersBundle:Characters");
-        $characters = $repositoryCharacters->getByAccountId($account->getId());
 
-        /** @var Characters $character */
-        foreach($characters as $character) {
-            if ($character->getGuid() == $character_guid) {
-                if ($amount == "down") {
-                    $character->setLevel($character->getLevel() - 1);
-                } else if ($amount == "up") {
-                    $character->setLevel($character->getLevel() + 1);
-                }
-                $emWowCharacters->persist($character);
-                $emWowCharacters->flush();
-            }
+        /** @var CharacterHelper $characterHelper */
+        $characterHelper = $this->get('app.characterHelper');
+        $character = $characterHelper->getSecurityCharacter($character_guid, $this->getUser());
+        if ($character == null) {
+            die("Error");
         }
+
+        if ($amount == "down") {
+            $character->setLevel($character->getLevel() - 1);
+        } else if ($amount == "up") {
+            $character->setLevel($character->getLevel() + 1);
+        }
+        $emWowCharacters->persist($character);
+        $emWowCharacters->flush();
 
         $this->addFlash('info', "Done!");
 
