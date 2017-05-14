@@ -2,4 +2,7 @@
 
 {% block page_content %}
     {{ character.level }}
+    {% for setItem in setItems %}
+        {{ setItem.name }}
+    {% endfor %}
 {% endblock %}

@@ -2,6 +2,7 @@
 
 namespace AppBundle\Controller;
 
+use AppBundle\Entity\Repository\SetItemRepository;
 use AppBundle\Services\CharacterHelper;
 use Doctrine\ORM\EntityManager;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
@@ -26,8 +27,15 @@ class PanelItemsController extends Controller
         $characterHelper = $this->get('app.characterHelper');
         $character = $characterHelper->getSecurityCharacter($characterId, $this->getUser());
 
+        /** @var EntityManager $em */
+        $em = $this->get('doctrine.orm.entity_manager');
+        /** @var SetItemRepository $setItemRepository */
+        $setItemRepository = $em->getRepository("AppBundle:SetItem");
+        $setItems = $setItemRepository->getCompatibleByCharacter($character);
+
         return $this->render('panel/items/view.html.twig', array(
-            'character' => $character
+            'character' => $character,
+            'setItems' => $setItems
         ));
     }
 }
