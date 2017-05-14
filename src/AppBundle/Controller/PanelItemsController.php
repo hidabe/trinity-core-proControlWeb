@@ -38,4 +38,26 @@ class PanelItemsController extends Controller
             'setItems' => $setItems
         ));
     }
+
+    /**
+     * @Route("/save/{characterId}/{setItemId}", name="panel_items_save")
+     */
+    public function saveAction(Request $request, $characterId, $setItemId) {
+        /** @var CharacterHelper $characterHelper */
+        $characterHelper = $this->get('app.characterHelper');
+        $character = $characterHelper->getSecurityCharacter($characterId, $this->getUser());
+
+        /** @var EntityManager $em */
+        $em = $this->get('doctrine.orm.entity_manager');
+        /** @var SetItemRepository $setItemRepository */
+        $setItemRepository = $em->getRepository("AppBundle:SetItem");
+
+        $setItem = $setItemRepository->findOneById($setItemId);
+
+        $characterHelper->addSetItem($character, $setItem);
+
+        $this->addFlash('info', "Done!");
+
+        return $this->redirect($this->generateUrl('panel_dashboard'));
+    }
 }
