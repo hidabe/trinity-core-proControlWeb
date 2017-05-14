@@ -22,6 +22,7 @@ class AppKernel extends Kernel
             new Avanzu\AdminThemeBundle\AvanzuAdminThemeBundle(),
             new FOS\UserBundle\FOSUserBundle(),
             new TCPCW\DB\WowWorldBundle\TCPCWDBWowWorldBundle(),
+            new JavierEguiluz\Bundle\EasyAdminBundle\EasyAdminBundle(),
         ];
 
         if (in_array($this->getEnvironment(), ['dev', 'test'], true)) {

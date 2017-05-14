@@ -25,6 +25,8 @@ class PanelItemsController extends Controller
         $accountHelper = $this->get('tcpcwdb_wow_auth.account');
         $account = $accountHelper->getAccountFromUsername($this->getUser()->getUsername());
 
+        //foreach($account->)
+
         return $this->render('panel/items/view.html.twig', array());
     }
 }

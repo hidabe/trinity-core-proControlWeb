@@ -158,3 +158,8 @@ fos_user:
     from_email:
         address: asmar@sopinet.com
         sender_name: Asmar
+
+easy_admin:
+    entities:
+        - AppBundle\Entity\User
+        - AppBundle\Entity\SetItem

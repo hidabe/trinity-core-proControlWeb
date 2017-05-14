@@ -27,6 +27,7 @@
         "doctrine/orm": "^2.5",
         "guzzlehttp/guzzle": "^6.2",
         "incenteev/composer-parameter-handler": "^2.0",
+        "javiereguiluz/easyadmin-bundle": "^1.16",
         "kevinrob/guzzle-cache-middleware": "^2.0",
         "sensio/distribution-bundle": "^5.0",
         "sensio/framework-extra-bundle": "^3.0.2",

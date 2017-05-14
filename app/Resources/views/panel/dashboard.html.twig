@@ -18,6 +18,7 @@
                 <div class="widget-user-header bg-aqua-active">
                     <h3 class="widget-user-username">{{ character.name }}</h3>
                     <h5 class="widget-user-desc">{{ ("wow.race." ~ character.race)|trans }} | {{ ("wow.class." ~ character.class)|trans }}</h5>
+                    <a href="{{ path('panel_items_view', {'characterId' : character.guid}) }}" class="pull-right btn btn-danger">Add set</a>
                 </div>
                 <div class="widget-user-image">
                     <img class="img-circle" src="http://img4.mmo.mmo4arab.com/news/2010/12/31/wow_avatar/wow_avatar_03.jpg" alt="User Avatar">
